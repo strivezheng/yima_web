@@ -1,0 +1,100 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection) or
+# paste cURL into the file and request will be converted to HTTP Request format.
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+# 来了
+GET http://{{host}}/renren-fast/appYmrecord/open/ymComes?userId=517&beginDay=2020-01-09
+Accept: application/json
+#token: {{token}}
+
+###
+
+# 走了
+GET http://{{host}}/renren-fast/appYmrecord/open/ymGoes?userId=517&dateDay=2019-11-09
+Accept: application/json
+#token: {{token}}
+
+###
+
+# 获取用户记录
+GET http://{{host}}/renren-fast/appYmrecord/open/getRecordByUserId?userId=517
+Accept: application/json
+#token: {{token}}
+
+###
+
+# 添加或编辑 根据当月有无记录，没有则新增，有则修改
+POST http://{{host}}/renren-fast/appYmrecord/open/addOrUpdate
+Content-Type: application/json
+
+{
+  "userId": 517,
+  "ymStartTime": "2019-12-21",
+  "ymEndTime": "2019-12-28"
+}
+
+###
+
+
+# 删除记录
+GET http://{{host}}/renren-fast/appYmrecord/open/removeById?id=4
+Accept: application/json
+#token: {{token}}
+
+###
+
+
+
+
+# 获取或动态计算当月信息
+GET http://{{host}}/renren-fast/appYmrecord/open/generateForecastData?userId=517&month=2020-11-1
+Accept: application/json
+#token: {{token}}
+
+###
+
+
+
+# 添加备注
+GET http://{{host}}/renren-fast/appYmrecord/open/addOrUpdateRemark?userId=517&monthDay=2019-11-1&remark=你真好3
+Accept: application/json
+#token: {{token}}
+
+###
+
+# 获取月份备注
+GET http://{{host}}/renren-fast/appYmrecord/open/getUserRemark?userId=519&month=2020-1-12
+Accept: application/json
+#token: {{token}}
+
+
+
+###
+
+# 首页信息
+GET http://{{host}}/renren-fast/appYmrecord/open/homeInfo?userId=517
+Accept: application/json
+#token: {{token}}
+
+
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

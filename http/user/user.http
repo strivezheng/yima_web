@@ -1,0 +1,42 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection) or
+# paste cURL into the file and request will be converted to HTTP Request format.
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+GET http://{{host}}/renren-fast/appUser/open/getUserInfoByUserId?userId=6
+Accept: application/json
+#token: {{token}}
+
+###
+
+
+POST http://{{host}}/renren-fast/app/loginMiniProgram
+Content-Type: application/json
+
+{
+  "code": "f976221eaf22dc61bf30bc5daff9689b",
+  "nickName": "11",
+  "avatarUrl": "str",
+  "sex": 0,
+  "platform": "qq"
+}
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

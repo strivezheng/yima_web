@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.generator.dao.TxlBookAnswerDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.generator.entity.TxlBookAnswerEntity" id="txlBookAnswerMap">
+        <result property="id" column="id"/>
+        <result property="bookId" column="book_id"/>
+        <result property="bookName" column="book_name"/>
+        <result property="answerUserId" column="answer_user_id"/>
+        <result property="answerUserName" column="answer_user_name"/>
+        <result property="answerDetail" column="answer_detail"/>
+        <result property="type" column="type"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <select id="selectPreAnswerAndTotal" resultType="io.renren.modules.app.entity.vo.RecentAnswerVO" parameterType="integer">
+
+
+        SELECT
+            asr.id as id,
+            asr.book_id as bookId,
+            asr.book_name as bookName,
+            asr.answer_user_id as answerUserId,
+            asr.answer_user_name as answerUserName,
+            asr.answer_detail as answerDetail,
+            asr.type as type,
+            asr.status as status,
+            asr.create_time as createTime,
+            t.total as total
+        FROM
+            txl_book_answer AS asr,
+            (
+                SELECT
+                    COUNT(1) AS total
+                FROM
+                    txl_book_answer
+                WHERE
+                    book_id = #{bookId}
+            ) AS t
+        WHERE
+            asr.book_id = #{bookId}
+        ORDER BY
+            asr.create_time DESC
+        LIMIT 5
+
+
+    </select>
+
+
+</mapper>

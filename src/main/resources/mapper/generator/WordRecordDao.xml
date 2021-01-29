@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.generator.dao.WordRecordDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.generator.entity.WordRecordEntity" id="wordRecordMap">
+        <result property="id" column="id"/>
+        <result property="uuId" column="uu_id"/>
+        <result property="openWord" column="open_word"/>
+        <result property="privateWord" column="private_word"/>
+        <result property="userId" column="user_id"/>
+        <result property="createTime" column="create_time"/>
+    </resultMap>
+
+
+</mapper>

@@ -1,0 +1,95 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection) or
+# paste cURL into the file and request will be converted to HTTP Request format.
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+GET http://{{host}}/renren-fast/appUser/open/getUserInfoByUserId?userId=517
+Accept: application/json
+#token: {{token}}
+
+###
+
+
+GET http://{{host}}/renren-fast/app/open/getQqAccessToken
+Content-Type: application/json
+
+//{
+//  "code": "f976221eaf22dc61bf30bc5daff9689b",
+//  "nickName": "11",
+//  "avatarUrl": "str",
+//  "sex": 0,
+//  "platform": "qq"
+//}
+
+###
+
+
+POST http://{{host}}/renren-fast/app/open/sendSubscriptionMessage
+Content-Type: application/json
+
+{
+  "toUser": "E7C8FB9DB99E318094E437849454D6A7",
+  "templateId": "5f6badc393e8c7a13f7f026d887f35e4",
+  "data": {
+    "日程主题": {
+      "value": "姨妈开始提醒"
+    },
+    "开始时间": {
+      "value": "2019年5月05日（三天后）"
+    },
+    "日程描述": {
+      "value": "大数据预测分析，三天后您的大姨妈可能到访，请注意！"
+    }
+  }
+}
+
+###
+
+
+
+POST https://api.q.qq.com/api/json/subscribe/SendSubscriptionMessage?access_token=Ux56RIqCsYW27buONvyq7kdhtPzS38juiS3rzHTf1ssj6Ig8hiGMIA5kmMfZ7CsD4Z29
+Content-Type: application/json
+
+{
+  "access_token": "Ux56RIqCsYW27buONvyq7kdhtPzS38juiS3rzHTf1ssj6Ig8hiGMIA5kmMfZ7CsD4Z29",
+  "touser": "E7C8FB9DB99E318094E437849454D6A7",
+  "template_id": "5f6badc393e8c7a13f7f026d887f35e4",
+  "data": {
+    "keyword1": {
+      "value": "姨妈开始提醒"
+    },
+    "keyword2": {
+      "value": "2019年5月05日（三天后）"
+    },
+    "keyword3": {
+      "value": "大数据预测分析，三天后您的大姨妈可能到访，请注意！"
+    },
+    "keyword4": {
+      "value": "红糖水，生姜水都可以缓解姨妈带来的疼痛"
+    },
+    "keyword5": {
+      "value": "姨妈日历"
+    },
+    "emphasis_keyword": "keyword1.DATA"
+  }
+}
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

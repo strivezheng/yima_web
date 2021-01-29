@@ -1,0 +1,113 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection) or
+# paste cURL into the file and request will be converted to HTTP Request format.
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+# 根据userId，获取该用户的同学录
+GET http://{{host}}/renren-fast/appTxlBookAndAnswer/open/getBookInfoByUserId?userId=6
+Accept: application/json
+#token: {{token}}
+
+###
+
+# 根据Id，获取同学录
+GET http://{{host}}/renren-fast/appTxlBookAndAnswer/open/getBookInfoByBookId?bookId=5
+Accept: application/json
+#token: {{token}}
+
+###
+
+# 根据Id，获取回答
+GET http://{{host}}/renren-fast/appTxlBookAndAnswer/open/getAnswerById?answerId=7
+Accept: application/json
+#token: {{token}}
+
+###
+
+# 根据同学录id，获取所有回答
+GET http://{{host}}/renren-fast/appTxlBookAndAnswer/open/listAnswerByBookId?bookId=5
+Accept: application/json
+#token: {{token}}
+
+###
+
+
+# 获取用户所有的回答
+GET http://{{host}}/renren-fast/appTxlBookAndAnswer/open/listAnswerByAnswerUserId?answerUserId=7
+Accept: application/json
+#token: {{token}}
+
+###
+
+# 新增或更新回答，根据有无id判断
+POST http://{{host}}/renren-fast/appTxlBookAndAnswer/open/addOrUpdateAnswer
+Content-Type: application/json
+
+{
+
+  "bookId": 5,
+  "bookName": "小白的同学录",
+  "answerUserId": 7,
+  "answerUserName": "La Paisible",
+  "answerVO": {
+    "myName":"La Paisible",
+    "myDream":"科学家",
+    "myPhone":"18569468148",
+    "myBirthdaty":"2019-4-20",
+    "bestMemory":"大学",
+    "bestExperience":"逃课",
+    "bestBad":"懒",
+    "talk2me":"加油",
+    "impressionOptionsChooses":[
+      "文艺","范二","拉风","手机控"
+    ],
+    "impressionDatas":[
+      "文艺","范二","帅哥","拉风","软妹子",
+      "女汉子","手机控","起床困难户","购物狂",
+      "技术宅","待解救","小清新","月光族","知识分子",
+      "靠谱","游戏控"
+    ],
+    "imageList":[
+      "https://yima.lanzou.cloud/res/img/217491aa-2cb8-4b8d-9d7f-e486c7737c01.jpg",
+      "https://yima.lanzou.cloud/res/img/217491aa-2cb8-4b8d-9d7f-e486c7737c01.jpg",
+      "https://yima.lanzou.cloud/res/img/217491aa-2cb8-4b8d-9d7f-e486c7737c01.jpg"
+    ]
+  },
+
+  "type": "open"
+
+}
+
+###
+
+
+
+# 根据id更新回答
+POST http://{{host}}/renren-fast/appTxlBookAndAnswer/open/updateAnswerById
+Content-Type: application/json
+
+{
+}
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

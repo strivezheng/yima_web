@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.generator.dao.ShowResDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.generator.entity.ShowResEntity" id="showResMap">
+        <result property="id" column="id"/>
+        <result property="url" column="url"/>
+        <result property="pageUrl" column="page_url"/>
+        <result property="name" column="name"/>
+        <result property="avatar" column="avatar"/>
+        <result property="platform" column="platform"/>
+        <result property="shop" column="shop"/>
+        <result property="goods" column="goods"/>
+        <result property="resType" column="res_type"/>
+        <result property="remark" column="remark"/>
+        <result property="des" column="des"/>
+        <result property="createTime" column="create_time"/>
+        <result property="weight" column="weight"/>
+    </resultMap>
+
+    <select id="randomPage" resultMap="showResMap" parameterType="string">
+
+        SELECT
+            id,
+            url,
+            NAME,
+            platform,
+            shop,
+            goods,
+            res_type,
+            remark,
+            des,
+            create_time,
+            weight
+        FROM
+            show_res
+        WHERE
+            id >= (
+                (
+                    SELECT
+                        MAX(id)
+                    FROM
+                        show_res
+                    WHERE
+                        platform = #{platform, jdbcType=VARCHAR}
+                        AND  #{weight, jdbcType=VARCHAR} >= weight
+                ) - (
+                    SELECT
+                        MIN(id)
+                    FROM
+                        show_res
+                    WHERE
+                        platform = #{platform, jdbcType=VARCHAR}
+                        AND  #{weight, jdbcType=VARCHAR} >= weight
+                )
+            ) * RAND() + (
+                SELECT
+                    MIN(id)
+                FROM
+                    show_res
+                WHERE
+                    platform = #{platform, jdbcType=VARCHAR}
+                    AND  #{weight, jdbcType=VARCHAR} >= weight
+            )
+        AND platform =  #{platform, jdbcType=VARCHAR}
+        AND  #{weight, jdbcType=VARCHAR} >= weight
+        LIMIT 1,10
+
+
+
+    </select>
+
+</mapper>
